@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization xmlns="http://wixtoolset.org/schemas/v4/wxl"
+                 Culture="en-US">
+  <!-- Feature titles and descriptions -->
+  <String Id="FeatureProductTitle" Value="Vim for Windows" />
+  <String Id="FeatureProductDescription" Value="Vim/Gvim binaries." />
+  <String Id="FeatureShellIntegrationTitle" Value="Shell Integration" />
+  <String Id="FeatureShellIntegrationDescription" Value="Adds Vim to the &quot;Open With...&quot; list and installs an entry in the popup menu for the right mouse button so that you can edit any file with Vim." />
+  <String Id="FeatureDesktopShortcutsTitle" Value="Desktop Shortcuts" />
+  <String Id="FeatureDesktopShortcutsDescription" Value="Create desktop icons for gVim." />
+  <String Id="FeatureStartMenuShortcutsTitle" Value="Start Menu Shortcuts" />
+  <String Id="FeatureStartMenuShortcutsDescription" Value="Add Vim to the Start menu." />
+  <String Id="FeatureDefaultVimrcTitle" Value="Default vimrc" />
+  <String Id="FeatureDefaultVimrcDescription" Value="Create a default vimrc file." />
+
+  <!-- MajorUpgrade error message -->
+  <String Id="MajorUpgradeDowngradeError" Value="A newer version of [ProductName] is already installed." />
+
+  <!-- VimrcDlg: Vimrc configuration dialog -->
+  <String Id="VimrcDlgTitle" Value="Vimrc Configuration" />
+
+  <!-- VimrcDlg: Vi / Vim behavior section -->
+  <String Id="VimrcBehaviorGroupBox" Value="Vi / Vim behavior" />
+  <String Id="VimrcBehaviorText" Value="Compatibility and enhancements" />
+  <String Id="VimrcBehaviorCompatible" Value="Vi compatible" />
+  <String Id="VimrcBehaviorOriginal" Value="Vim original" />
+  <String Id="VimrcBehaviorDefault" Value="Vim with some enhancements (load defaults.vim)" />
+  <String Id="VimrcBehaviorEnhanced" Value="Vim with all enhancements (load vimrc_example.vim)" />
+
+  <!-- VimrcDlg: Mappings section -->
+  <String Id="VimrcMappingsGroupBox" Value="Mappings" />
+  <String Id="VimrcMappingsText" Value="Remap a few keys for Windows (Ctrl-V, Ctrl-C, Ctrl-A, Ctrl-S, Ctrl-F, etc)" />
+  <String Id="VimrcMappingsDefault" Value="Do not remap keys" />
+  <String Id="VimrcMappingsWindows" Value="Remap a few keys" />
+
+  <!-- VimrcDlg: Mouse section -->
+  <String Id="VimrcMouseGroupBox" Value="Mouse" />
+  <String Id="VimrcMouseText" Value="Behavior of right and left buttons" />
+  <String Id="VimrcMouseDefault" Value="Right: popup menu, Left: visual mode (default)" />
+  <String Id="VimrcMouseWindows" Value="Right: popup menu, Left: select mode (Windows)" />
+  <String Id="VimrcMouseXterm" Value="Right: extends selection, Left: visual mode (Unix)" />
+</WixLocalization>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization xmlns="http://wixtoolset.org/schemas/v4/wxl"
+                 Culture="ja-JP">
+  <!-- Feature titles and descriptions -->
+  <String Id="FeatureProductTitle" Value="Windows 版 Vim" />
+  <String Id="FeatureProductDescription" Value="Vim/Gvim バイナリ。" />
+  <String Id="FeatureShellIntegrationTitle" Value="シェル統合" />
+  <String Id="FeatureShellIntegrationDescription" Value="Vim を「プログラムから開く」一覧に追加し、右クリック メニューに Vim でファイルを開くエントリを追加します。" />
+  <String Id="FeatureDesktopShortcutsTitle" Value="デスクトップ ショートカット" />
+  <String Id="FeatureDesktopShortcutsDescription" Value="gVim のデスクトップ アイコンを作成します。" />
+  <String Id="FeatureStartMenuShortcutsTitle" Value="スタート メニューのショートカット" />
+  <String Id="FeatureStartMenuShortcutsDescription" Value="Vim をスタート メニューに追加します。" />
+  <String Id="FeatureDefaultVimrcTitle" Value="既定の vimrc" />
+  <String Id="FeatureDefaultVimrcDescription" Value="既定の vimrc ファイルを作成します。" />
+
+  <!-- MajorUpgrade error message -->
+  <String Id="MajorUpgradeDowngradeError" Value="[ProductName] の新しいバージョンが既にインストールされています。" />
+
+  <!-- VimrcDlg: Vimrc configuration dialog -->
+  <String Id="VimrcDlgTitle" Value="Vimrc の設定" />
+
+  <!-- VimrcDlg: Vi / Vim behavior section -->
+  <String Id="VimrcBehaviorGroupBox" Value="Vi / Vim の動作" />
+  <String Id="VimrcBehaviorText" Value="互換性と機能拡張" />
+  <String Id="VimrcBehaviorCompatible" Value="Vi 互換" />
+  <String Id="VimrcBehaviorOriginal" Value="Vim オリジナル" />
+  <String Id="VimrcBehaviorDefault" Value="一部機能拡張あり (defaults.vim を読み込む)" />
+  <String Id="VimrcBehaviorEnhanced" Value="すべての機能拡張あり (vimrc_example.vim を読み込む)" />
+
+  <!-- VimrcDlg: Mappings section -->
+  <String Id="VimrcMappingsGroupBox" Value="キーマッピング" />
+  <String Id="VimrcMappingsText" Value="Windows 用にいくつかのキーを再マップする (Ctrl-V、Ctrl-C、Ctrl-A、Ctrl-S、Ctrl-F など)" />
+  <String Id="VimrcMappingsDefault" Value="キーを再マップしない" />
+  <String Id="VimrcMappingsWindows" Value="いくつかのキーを再マップする" />
+
+  <!-- VimrcDlg: Mouse section -->
+  <String Id="VimrcMouseGroupBox" Value="マウス" />
+  <String Id="VimrcMouseText" Value="右ボタンと左ボタンの動作" />
+  <String Id="VimrcMouseDefault" Value="右: ポップアップ メニュー、左: ビジュアル モード (既定)" />
+  <String Id="VimrcMouseWindows" Value="右: ポップアップ メニュー、左: 選択モード (Windows)" />
+  <String Id="VimrcMouseXterm" Value="右: 選択範囲を拡張、左: ビジュアル モード (Unix)" />
+</WixLocalization>

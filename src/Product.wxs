@@ -8,36 +8,36 @@
            Manufacturer="Bram Moolenaar et al."
            UpgradeCode="12b27f7b-6f45-4b2c-87ed-61c5008d643b">
     <SummaryInformation Description="Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set." Comments="Vim $(var.ProductTag)" />
-    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MajorUpgrade DowngradeErrorMessage="!(loc.MajorUpgradeDowngradeError)" />
     <Media Id="1" Cabinet="Data.cab" EmbedCab="yes" CompressionLevel="high" />
     <Icon Id="gvim" SourceFile="$(var.ProductSource)\gvim.exe" />
 
     <Feature Id="Product"
              ConfigurableDirectory="INSTALLDIR"
-             Description="Vim/Gvim binaries."
+             Description="!(loc.FeatureProductDescription)"
              Display="expand"
-             Title="Vim for Windows"
+             Title="!(loc.FeatureProductTitle)"
              AllowAbsent="no">
       <ComponentGroupRef Id="ProductComponents" />
       <Feature Id="ShellIntegration"
-               Description="Adds Vim to the &quot;Open With...&quot; list and installs an entry in the popup menu for the right mouse button so that you can edit any file with Vim."
-               Title="Shell Integration">
+               Description="!(loc.FeatureShellIntegrationDescription)"
+               Title="!(loc.FeatureShellIntegrationTitle)">
         <ComponentRef Id="RegistryComponent" />
       </Feature>
       <Feature Id="DesktopShortcuts"
-               Description="Create desktop icons for gVim."
+               Description="!(loc.FeatureDesktopShortcutsDescription)"
                Level="10"
-               Title="Desktop Shortcuts">
+               Title="!(loc.FeatureDesktopShortcutsTitle)">
         <ComponentRef Id="DesktopShortcutsComponent" />
       </Feature>
       <Feature Id="StartMenuShortcuts"
-               Description="Add Vim to the Start menu."
-               Title="Start Menu Shortcuts">
+               Description="!(loc.FeatureStartMenuShortcutsDescription)"
+               Title="!(loc.FeatureStartMenuShortcutsTitle)">
         <ComponentRef Id="StartMenuShortcutsComponent" />
       </Feature>
       <Feature Id="DefaultVimrc"
-               Description="Create a default vimrc file."
-               Title="Default vimrc">
+               Description="!(loc.FeatureDefaultVimrcDescription)"
+               Title="!(loc.FeatureDefaultVimrcTitle)">
         <ComponentRef Id="DefaultVimrcComponent" />
       </Feature>
     </Feature>
@@ -597,21 +597,21 @@
                  Height="15"
                  Transparent="yes"
                  NoPrefix="yes"
-                 Text="Vimrc Configuration" />
+                 Text="!(loc.VimrcDlgTitle)" />
         <Control Id="BehaviorGroupBox"
                  Type="GroupBox"
                  X="10"
                  Y="50"
                  Width="350"
                  Height="55"
-                 Text="Vi / Vim behavior" />
+                 Text="!(loc.VimrcBehaviorGroupBox)" />
         <Control Id="BehaviorText"
                  Type="Text"
                  X="20"
                  Y="63"
                  Width="300"
                  Height="10"
-                 Text="Compatibility and enhancements" />
+                 Text="!(loc.VimrcBehaviorText)" />
         <Control Id="BehaviorComboBox"
                  Type="ComboBox"
                  X="40"
@@ -622,13 +622,13 @@
                  Sorted="yes"
                  Property="VIMRC_BEHAVIOR">
           <ComboBox Property="VIMRC_BEHAVIOR">
-            <ListItem Text="Vi compatible"
+            <ListItem Text="!(loc.VimrcBehaviorCompatible)"
                       Value="compatible" />
-            <ListItem Text="Vim original"
+            <ListItem Text="!(loc.VimrcBehaviorOriginal)"
                       Value="original" />
-            <ListItem Text="Vim with some enhancements (load defaults.vim)"
+            <ListItem Text="!(loc.VimrcBehaviorDefault)"
                       Value="default" />
-            <ListItem Text="Vim with all enhancements (load vimrc_example.vim)"
+            <ListItem Text="!(loc.VimrcBehaviorEnhanced)"
                       Value="enhanced" />
           </ComboBox>
         </Control>
@@ -638,14 +638,14 @@
                  Y="110"
                  Width="350"
                  Height="55"
-                 Text="Mappings" />
+                 Text="!(loc.VimrcMappingsGroupBox)" />
         <Control Id="MappingsText"
                  Type="Text"
                  X="20"
                  Y="123"
                  Width="300"
                  Height="10"
-                 Text="Remap a few keys for Windows (Ctrl-V, Ctrl-C, Ctrl-A, Ctrl-S, Ctrl-F, etc)" />
+                 Text="!(loc.VimrcMappingsText)" />
         <Control Id="MappingsComboBox"
                  Type="ComboBox"
                  X="40"
@@ -656,9 +656,9 @@
                  Sorted="yes"
                  Property="VIMRC_MAPPINGS">
           <ComboBox Property="VIMRC_MAPPINGS">
-            <ListItem Text="Do not remap keys"
+            <ListItem Text="!(loc.VimrcMappingsDefault)"
                       Value="default" />
-            <ListItem Text="Remap a few keys"
+            <ListItem Text="!(loc.VimrcMappingsWindows)"
                       Value="windows" />
           </ComboBox>
         </Control>
@@ -668,14 +668,14 @@
                  Y="170"
                  Width="350"
                  Height="55"
-                 Text="Mouse" />
+                 Text="!(loc.VimrcMouseGroupBox)" />
         <Control Id="MouseText"
                  Type="Text"
                  X="20"
                  Y="183"
                  Width="300"
                  Height="10"
-                 Text="Behavior of right and left buttons" />
+                 Text="!(loc.VimrcMouseText)" />
         <Control Id="MouseComboBox"
                  Type="ComboBox"
                  X="40"
@@ -686,11 +686,11 @@
                  Sorted="yes"
                  Property="VIMRC_MOUSE">
           <ComboBox Property="VIMRC_MOUSE">
-            <ListItem Text="Right: popup menu, Left: visual mode (default)"
+            <ListItem Text="!(loc.VimrcMouseDefault)"
                       Value="default" />
-            <ListItem Text="Right: popup menu, Left: select mode (Windows)"
+            <ListItem Text="!(loc.VimrcMouseWindows)"
                       Value="windows" />
-            <ListItem Text="Right: extends selection, Left: visual mode (Unix)"
+            <ListItem Text="!(loc.VimrcMouseXterm)"
                       Value="xterm" />
           </ComboBox>
         </Control>
