@@ -44,7 +44,9 @@
     </Feature>
 
     <!-- For the dual purpose installer -->
+    <!--
     <ui:WixUI Id="WixUI_Advanced" InstallDirectory="VimFolder" />
+    -->
     <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
     <Property Id="ApplicationFolderName" Value="Vim" />
 
@@ -205,7 +207,7 @@
     </InstallExecuteSequence>
 
     <UI>
-      <ui:WixUI Id="WixUI_FeatureTree_NoLicense" />
+      <ui:WixUI Id="WixUI_Advanced_vim" />
     </UI>
 
     <?if $(sys.BUILDARCH) ~= "x86" ?>
@@ -399,13 +401,13 @@
 
   <?foreach WIXUIARCH in X86;X64;A64?>
     <Fragment>
-      <UI Id="WixUI_FeatureTree_NoLicense_$(WIXUIARCH)" />
-      <UIRef Id="WixUI_FeatureTree_NoLicense" />
+      <UI Id="WixUI_Advanced_vim_$(WIXUIARCH)" />
+      <UIRef Id="WixUI_Advanced" />
     </Fragment>
   <?endforeach?>
 
   <Fragment>
-    <UI Id="file WixUI_FeatureTree_NoLicense">
+    <UI Id="file WixUI_Advanced">
       <TextStyle Id="WixUI_Font_Normal"
                  FaceName="Tahoma"
                  Size="8"/>
