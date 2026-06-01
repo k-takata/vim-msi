@@ -6,7 +6,8 @@
            Language="1033"
            Version="$(var.ProductVersion)"
            Manufacturer="Bram Moolenaar et al."
-           UpgradeCode="12b27f7b-6f45-4b2c-87ed-61c5008d643b">
+           UpgradeCode="12b27f7b-6f45-4b2c-87ed-61c5008d643b"
+           Scope="perUserOrMachine">
     <SummaryInformation Description="Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set." Comments="Vim $(var.ProductTag)" />
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
     <Media Id="1" Cabinet="Data.cab" EmbedCab="yes" CompressionLevel="high" />
@@ -41,6 +42,9 @@
         <ComponentRef Id="DefaultVimrcComponent" />
       </Feature>
     </Feature>
+
+    <!-- For the dual purpose installer -->
+    <ui:WixUI Id="WixUI_Advanced" InstallDirectory="VimFolder" />
 
     <Property Id="Url" Value="https://www.vim.org" />
     <Property Id="ARPPRODUCTICON" Value="gvim" />
@@ -211,81 +215,79 @@
     <?endif?>
 
     <StandardDirectory Id="ProgramFiles6432Folder">
-      <Directory Id="VimFolder"
-                 Name="vim">
-        <Component Id="DefaultVimrcComponent">
-          <File Id="fil30026CAE7DF1D1F6F3496B2C32AF0DED"
-                KeyPath="yes"
-                Source="$(var.SrcDirectory)\_vimrc" />
-        </Component>
-        <Directory Id="INSTALLDIR"
-                   Name="vim$(var.ProductVersionMajor)$(var.ProductVersionMinor)" />
-        <Component Id="RegistryComponent"
-                   Guid="1096A971-8841-432E-9346-B71D1731D51A"
-                   KeyPath="yes">
-          <RegistryKey Id="Registry.Entry.Clsid.default"
-                       Root="HKCR"
-                       Key="CLSID\{51EEE242-AD87-11d3-9C1E-0090278BBD99}"
-                       ForceCreateOnInstall="yes"
-                       ForceDeleteOnUninstall="yes">
-            <RegistryValue Type="string"
-                           Value="Vim Shell Extension" />
-          </RegistryKey>
-          <RegistryKey Id="Registry.Entry.Clsid.InProcServer32"
-                       Root="HKCR"
-                       Key="CLSID\{51EEE242-AD87-11d3-9C1E-0090278BBD99}\InProcServer32"
-                       ForceCreateOnInstall="yes"
-                       ForceDeleteOnUninstall="yes">
-            <RegistryValue Type="string"
-                           Value="[INSTALLDIR]$(var.GvimExtFolder)\gvimext.dll" />
-            <RegistryValue Type="string"
-                           Name="ThreadingModel"
-                           Value="Apartment" />
-          </RegistryKey>
-          <RegistryKey Id="Registry.Entry.ShellEx.ContextMenuHandlers"
-                       Root="HKCR"
-                       Key="*\shellex\ContextMenuHandlers\gvim"
-                       ForceCreateOnInstall="yes"
-                       ForceDeleteOnUninstall="yes">
-            <RegistryValue Type="string"
-                           Value="{51EEE242-AD87-11d3-9C1E-0090278BBD99}" />
-          </RegistryKey>
-          <RegistryKey Id="Registry.Entry.ShellExtensions.Approved"
-                       Root="HKLM"
-                       Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved"
-                       ForceCreateOnInstall="yes"
-                       ForceDeleteOnUninstall="yes">
-            <RegistryValue Type="string"
-                           Name="{51EEE242-AD87-11d3-9C1E-0090278BBD99}"
-                           Value="Vim Shell Extension" />
-          </RegistryKey>
-          <RegistryKey Id="Registry.Entry.Clsid.Software"
-                       Root="HKLM"
-                       Key="SOFTWARE\Vim\Gvim"
-                       ForceCreateOnInstall="yes"
-                       ForceDeleteOnUninstall="yes">
-            <RegistryValue Type="string"
-                           Name="path"
-                           Value="[INSTALLDIR]gvim.exe" />
-          </RegistryKey>
-          <RegistryKey Id="Registry.Open.With"
-                       Root="HKCR"
-                       Key="*\OpenWithList\gvim.exe"
-                       ForceCreateOnInstall="yes"
-                       ForceDeleteOnUninstall="yes">
-            <RegistryValue Type="string"
-                           Value="" />
-          </RegistryKey>
-          <RegistryKey Id="Registry.Entry.EditCommand"
-                       Root="HKCR"
-                       Key="Applications\gvim.exe\shell\edit\command"
-                       ForceCreateOnInstall="yes"
-                       ForceDeleteOnUninstall="yes">
-            <RegistryValue Type="string"
-                           Value="&quot;[INSTALLDIR]gvim.exe&quot; &quot;%1&quot;" />
-          </RegistryKey>
-        </Component>
-      </Directory>
+      <Directory Id="VimFolder" Name="vim" />
+      <Component Id="DefaultVimrcComponent">
+        <File Id="fil30026CAE7DF1D1F6F3496B2C32AF0DED"
+              KeyPath="yes"
+              Source="$(var.SrcDirectory)\_vimrc" />
+      </Component>
+      <Directory Id="INSTALLDIR"
+                 Name="vim$(var.ProductVersionMajor)$(var.ProductVersionMinor)" />
+      <Component Id="RegistryComponent"
+                 Guid="1096A971-8841-432E-9346-B71D1731D51A"
+                 KeyPath="yes">
+        <RegistryKey Id="Registry.Entry.Clsid.default"
+                     Root="HKMU"
+                     Key="Software\Classes\CLSID\{51EEE242-AD87-11d3-9C1E-0090278BBD99}"
+                     ForceCreateOnInstall="yes"
+                     ForceDeleteOnUninstall="yes">
+          <RegistryValue Type="string"
+                         Value="Vim Shell Extension" />
+        </RegistryKey>
+        <RegistryKey Id="Registry.Entry.Clsid.InProcServer32"
+                     Root="HKMU"
+                     Key="Software\Classes\CLSID\{51EEE242-AD87-11d3-9C1E-0090278BBD99}\InProcServer32"
+                     ForceCreateOnInstall="yes"
+                     ForceDeleteOnUninstall="yes">
+          <RegistryValue Type="string"
+                         Value="[INSTALLDIR]$(var.GvimExtFolder)\gvimext.dll" />
+          <RegistryValue Type="string"
+                         Name="ThreadingModel"
+                         Value="Apartment" />
+        </RegistryKey>
+        <RegistryKey Id="Registry.Entry.ShellEx.ContextMenuHandlers"
+                     Root="HKMU"
+                     Key="Software\Classes\*\shellex\ContextMenuHandlers\gvim"
+                     ForceCreateOnInstall="yes"
+                     ForceDeleteOnUninstall="yes">
+          <RegistryValue Type="string"
+                         Value="{51EEE242-AD87-11d3-9C1E-0090278BBD99}" />
+        </RegistryKey>
+        <RegistryKey Id="Registry.Entry.ShellExtensions.Approved"
+                     Root="HKMU"
+                     Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Approved"
+                     ForceCreateOnInstall="yes"
+                     ForceDeleteOnUninstall="yes">
+          <RegistryValue Type="string"
+                         Name="{51EEE242-AD87-11d3-9C1E-0090278BBD99}"
+                         Value="Vim Shell Extension" />
+        </RegistryKey>
+        <RegistryKey Id="Registry.Entry.Clsid.Software"
+                     Root="HKMU"
+                     Key="SOFTWARE\Vim\Gvim"
+                     ForceCreateOnInstall="yes"
+                     ForceDeleteOnUninstall="yes">
+          <RegistryValue Type="string"
+                         Name="path"
+                         Value="[INSTALLDIR]gvim.exe" />
+        </RegistryKey>
+        <RegistryKey Id="Registry.Open.With"
+                     Root="HKMU"
+                     Key="Software\Classes\*\OpenWithList\gvim.exe"
+                     ForceCreateOnInstall="yes"
+                     ForceDeleteOnUninstall="yes">
+          <RegistryValue Type="string"
+                         Value="" />
+        </RegistryKey>
+        <RegistryKey Id="Registry.Entry.EditCommand"
+                     Root="HKMU"
+                     Key="Software\Classes\Applications\gvim.exe\shell\edit\command"
+                     ForceCreateOnInstall="yes"
+                     ForceDeleteOnUninstall="yes">
+          <RegistryValue Type="string"
+                         Value="&quot;[INSTALLDIR]gvim.exe&quot; &quot;%1&quot;" />
+        </RegistryKey>
+      </Component>
     </StandardDirectory>
 
     <ComponentGroup Id="ProductComponents" Directory="INSTALLDIR">
@@ -354,7 +356,7 @@
           <RemoveFolder Id="RemoveProgramMenuApplicationFolder"
                         Directory="ProgramMenuApplicationFolder"
                         On="uninstall" />
-          <RegistryValue Root="HKCU"
+          <RegistryValue Root="HKMU"
                          Key="Software\[ProductName]"
                          Name="StartMenuShortcutsComponent"
                          Type="integer"
@@ -383,7 +385,7 @@
                   Target="[INSTALLDIR]gvim.exe"
                   Arguments="-R"
                   WorkingDirectory="INSTALLDIR" />
-        <RegistryValue Root="HKCU"
+        <RegistryValue Root="HKMU"
                        Key="Software\[ProductName]"
                        Name="DesktopShortcutsComponent"
                        Type="integer"
