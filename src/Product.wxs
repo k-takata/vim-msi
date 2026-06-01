@@ -45,6 +45,8 @@
 
     <!-- For the dual purpose installer -->
     <ui:WixUI Id="WixUI_Advanced" InstallDirectory="VimFolder" />
+    <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
+    <Property Id="ApplicationFolderName" Value="Vim" />
 
     <Property Id="Url" Value="https://www.vim.org" />
     <Property Id="ARPPRODUCTICON" Value="gvim" />
