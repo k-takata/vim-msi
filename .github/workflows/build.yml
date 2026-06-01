@@ -1,9 +1,11 @@
 name: build
 
 on:
-  schedule:
-    - cron: "42 6 * * *"
+  #schedule:
+  #  - cron: "42 6 * * *"
   workflow_dispatch:
+  push:
+    branches: ['**/*']
 
 jobs:
   check:
@@ -144,7 +146,7 @@ jobs:
           & $path --version
 
       - name: Publish release
-        if: needs.check.outputs.publish == 'True'
+        if: False # needs.check.outputs.publish == 'True'
         run: gh.exe release create ${{ needs.check.outputs.tag }} --title ${{ needs.check.outputs.tag }} --notes 'Vim Windows x64 build packaged as an msi.' vim.msi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
