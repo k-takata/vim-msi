@@ -45,8 +45,8 @@
     <Property Id="Url" Value="https://www.vim.org" />
     <Property Id="ARPPRODUCTICON" Value="gvim" />
     <Property Id="VIMRC_BEHAVIOR" Value="enhanced" />
-    <Property Id="VIMRC_MAPPINGS" Value="windows" />
-    <Property Id="VIMRC_MOUSE" Value="windows" />
+    <Property Id="VIMRC_MAPPINGS" Value="default" />
+    <Property Id="VIMRC_MOUSE" Value="default" />
 
     <Launch Condition="Installed OR VIMRC_BEHAVIOR = &quot;compatible&quot; OR VIMRC_BEHAVIOR = &quot;original&quot; OR VIMRC_BEHAVIOR = &quot;default&quot; OR VIMRC_BEHAVIOR = &quot;enhanced&quot;"
             Message="The VIMRC_BEHAVIOR property must be one of &quot;compatible&quot;, &quot;original&quot;, &quot;default&quot; or &quot;enhanced&quot;." />
