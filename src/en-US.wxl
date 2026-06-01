@@ -25,12 +25,12 @@
   <String Id="VimrcBehaviorCompatible" Value="Vi compatible" />
   <String Id="VimrcBehaviorOriginal" Value="Vim original" />
   <String Id="VimrcBehaviorDefault" Value="Vim with some enhancements (load defaults.vim)" />
-  <String Id="VimrcBehaviorEnhanced" Value="Vim with all enhancements (load vimrc_example.vim)" />
+  <String Id="VimrcBehaviorEnhanced" Value="Vim with all enhancements (load vimrc_example.vim) (default)" />
 
   <!-- VimrcDlg: Mappings section -->
   <String Id="VimrcMappingsGroupBox" Value="Mappings" />
   <String Id="VimrcMappingsText" Value="Remap a few keys for Windows (Ctrl-V, Ctrl-C, Ctrl-A, Ctrl-S, Ctrl-F, etc)" />
-  <String Id="VimrcMappingsDefault" Value="Do not remap keys" />
+  <String Id="VimrcMappingsDefault" Value="Do not remap keys (default)" />
   <String Id="VimrcMappingsWindows" Value="Remap a few keys" />
 
   <!-- VimrcDlg: Mouse section -->

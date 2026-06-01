@@ -25,12 +25,12 @@
   <String Id="VimrcBehaviorCompatible" Value="Vi 互換" />
   <String Id="VimrcBehaviorOriginal" Value="Vim オリジナル" />
   <String Id="VimrcBehaviorDefault" Value="一部機能拡張あり (defaults.vim を読み込む)" />
-  <String Id="VimrcBehaviorEnhanced" Value="すべての機能拡張あり (vimrc_example.vim を読み込む)" />
+  <String Id="VimrcBehaviorEnhanced" Value="すべての機能拡張あり (vimrc_example.vim を読み込む) (既定)" />
 
   <!-- VimrcDlg: Mappings section -->
   <String Id="VimrcMappingsGroupBox" Value="キーマッピング" />
   <String Id="VimrcMappingsText" Value="Windows 用にいくつかのキーを再マップする (Ctrl-V、Ctrl-C、Ctrl-A、Ctrl-S、Ctrl-F など)" />
-  <String Id="VimrcMappingsDefault" Value="キーを再マップしない" />
+  <String Id="VimrcMappingsDefault" Value="キーを再マップしない (既定)" />
   <String Id="VimrcMappingsWindows" Value="いくつかのキーを再マップする" />
 
   <!-- VimrcDlg: Mouse section -->
