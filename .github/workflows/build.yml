@@ -114,7 +114,7 @@ jobs:
             build `
             -arch x64 `
             -src src\Product.wxs `
-            -culture en-US;ja-JP `
+            -culture "en-US;ja-JP" `
             -loc src\en-US.wxl `
             -loc src\ja-JP.wxl `
             -d ProductSource="$(Resolve-Path 'build\vim\vim${{ steps.version.outputs.major }}${{ steps.version.outputs.minor }}')" `
