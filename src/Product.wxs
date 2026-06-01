@@ -629,7 +629,7 @@
                       Value="original" />
             <ListItem Text="Vim with some enhancements (load defaults.vim)"
                       Value="default" />
-            <ListItem Text="Vim with all enhancements (load vimrc_example.vim)"
+            <ListItem Text="Vim with all enhancements (load vimrc_example.vim) (default)"
                       Value="enhanced" />
           </ComboBox>
         </Control>
@@ -657,7 +657,7 @@
                  Sorted="yes"
                  Property="VIMRC_MAPPINGS">
           <ComboBox Property="VIMRC_MAPPINGS">
-            <ListItem Text="Do not remap keys"
+            <ListItem Text="Do not remap keys (default)"
                       Value="default" />
             <ListItem Text="Remap a few keys"
                       Value="windows" />
